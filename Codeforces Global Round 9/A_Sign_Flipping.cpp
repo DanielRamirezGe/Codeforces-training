@@ -13,8 +13,8 @@ int main()
 		for(int j=0; j<n; j++){
 			cin>>aux;
 			vec.push_back(aux);
-		}
-		for(int j=0; j<n; j++)
+		
+}		for(int j=0; j<n; j++)
 			if(vec[j]<0)
 				vec[j]*=-1;
 		for(int j=0; j<n; j+=2)

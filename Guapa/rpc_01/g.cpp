@@ -1,0 +1,97 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+	string to,ne;
+	int b_t,b_n;
+	while(cin>>to)
+	{
+		cin>>b_t;
+		cin>>ne;
+		cin>>b_n;
+		if(to=="Destroyers")
+		{
+			if(ne=="Battleships")
+			{
+				if(b_n*2>b_t)
+					cout<<"Naebbirac"<<endl;
+				
+				else
+					cout<<"Tobby"<<endl;
+			}
+			if(ne=="Cruisers")
+			{
+				if(b_t*2>b_n)
+					cout<<"Tobby"<<endl;
+				else
+					cout<<"Naebbirac"<<endl;
+			}
+			if(ne=="Destroyers")
+			{
+				if(b_n>b_t)
+					cout<<"Naebbirac"<<endl;
+				else
+					if(b_t>b_n)
+						cout<<"Tobby"<<endl;
+					else
+						cout<<"Draw"<<endl;
+			}
+		}
+		if(to=="Battleships")
+		{
+			if(ne=="Battleships")
+			{
+				if(b_n>b_t)
+					cout<<"Naebbirac"<<endl;
+				else
+					if(b_t>b_n)
+						cout<<"Tobby"<<endl;
+					else
+						cout<<"Draw"<<endl;
+			}
+			if(ne=="Cruisers")
+			{
+				if(b_n*2>b_t)
+					cout<<"Naebbirac"<<endl;
+				else
+					cout<<"Tobby"<<endl;
+					
+			}
+			if(ne=="Destroyers")
+			{
+				if(b_t*2>b_n)
+					cout<<"Tobby"<<endl;
+				else
+
+					cout<<"Naebbirac"<<endl;
+			}
+		}
+		if(to=="Cruisers")
+		{
+			if(ne=="Cruisers")
+			{
+				if(b_n>b_t)
+					cout<<"Naebbirac"<<endl;
+				else
+					if(b_t>b_n)
+						cout<<"Tobby"<<endl;
+					else
+						cout<<"Draw"<<endl;
+			}
+			if(ne=="Battleships")
+			{
+				if(b_t*2>b_n)
+					cout<<"Tobby"<<endl;
+				else
+					cout<<"Naebbirac"<<endl;
+			}
+			if(ne=="Destroyers")
+			{
+				if(b_n*2>b_t)
+					cout<<"Naebbirac"<<endl;
+				else
+					cout<<"Tobby"<<endl;
+			}
+		}
+	}
+}

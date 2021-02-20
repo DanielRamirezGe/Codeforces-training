@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-pair<int,int> reduceFractiuon(int a, int b){
+pair<int,int> reduceFraction(int a, int b){
 	for(int i=2; i<=36; i++)
 	{
 		if(a%i == 0 and b%i == 0)
-			return reduceFractiuon(a/i, b/i);
+			return reduceFraction(a/i, b/i);
 		if(a<i or b<i)
 			return {a,b};
 	}
@@ -28,6 +28,6 @@ int main(){
 		for (int j = 0; j < 6; ++j)
 			if(first_dice[i]> second_dice[j])
 				win++;
-	pair<int,int> ans =reduceFractiuon(win,tot);
+	pair<int,int> ans =reduceFraction(win,tot);
 	cout<<ans.first <<'/'<<ans.second<<endl;
 }

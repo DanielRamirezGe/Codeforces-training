@@ -1,3 +1,23 @@
+// It has finally been decided to build a roof over the football field in School 179. Its construction will require placing n consecutive vertical pillars. Furthermore, the headmaster wants the heights of all the pillars to form a permutation p of integers from 0 to n−1, where pi is the height of the i-th pillar from the left (1≤i≤n).
+
+// As the chief, you know that the cost of construction of consecutive pillars is equal to the maximum value of the bitwise XOR of heights of all pairs of adjacent pillars. In other words, the cost of construction is equal to max1≤i≤n−1pi⊕pi+1, where ⊕ denotes the bitwise XOR operation.
+
+// Find any sequence of pillar heights p of length n with the smallest construction cost.
+
+// In this problem, a permutation is an array consisting of n distinct integers from 0 to n−1 in arbitrary order. For example, [2,3,1,0,4] is a permutation, but [1,0,1] is not a permutation (1 appears twice in the array) and [1,0,3] is also not a permutation (n=3, but 3 is in the array).
+
+// Input
+// Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤104). Description of the test cases follows.
+
+// The only line for each test case contains a single integer n (2≤n≤2⋅105) — the number of pillars for the construction of the roof.
+
+// It is guaranteed that the sum of n over all test cases does not exceed 2⋅105.
+
+// Output
+// For each test case print n integers p1, p2, …, pn — the sequence of pillar heights with the smallest construction cost.
+
+// If there are multiple answers, print any of them.
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -8,63 +28,27 @@ int main(){
         int n;
         cin>>n;
         n--;
-        if(n%2){
-            vector<int> ans;
-            for(int j= n-1 -2;  j>= 0; j-=2){
-                ans.push_back(j);
-            }
-            ans.push_back(n-1);
-            ans.push_back(n);
-            for(int j=1; j<n; j+=2){
-                ans.push_back(j);
-            }
-            for(int i=0; i<ans.size(); i++){
-                cout<<ans[i];
-                if(i!=ans.size()-1){
-                    cout<<" ";
-                }
-                else{
-                    cout<<endl;
-                }
-            }
+        int max = 1;
+        int exp=1;
+        int con = 1;
+        //cout<<exp<<" __ "<<n<<endl;
+        while( exp <= n){
+            max = exp;
+            exp = 1<<con;
+            con++;
+            //cout<<max<<" "<<con<<" "<<exp<<endl;
         }
-        else{
-            int menPar =0;
-            int mayPar = n;
-            int menNon = 1;
-            int mayNon = n-1;
-            vector <int> ans;
-            bool isPar=true;
-            for(int j=0; j<n/2; j++){
-                if(isPar){
-                    ans.push_back(mayPar);
-                    ans.push_back(menPar);
-                    mayPar -= 2;
-                    menPar += 2;
-                    isPar=false;
-                }
-                else{
-                    ans.push_back(mayNon);
-                    ans.push_back(menNon);
-                    mayNon -=2;
-                    menNon +=2;
-                    isPar=true;
-                }
-            }
-            if( (n/2) %2 ){
-                ans.push_back(menNon);
+        for(int i=1; i<max  ; i++ ){
+            cout<<i<<" ";
+        }
+        cout<<"0 ";
+        for(int i=max; i<= n; i++){
+            cout<<i;
+            if(i!=n){
+                cout<<" ";
             }
             else{
-                ans.push_back(menPar);
-            }
-            for(int j=ans.size()-1; j>=0; j--){
-                cout<<ans[j];
-                if(j!=0){
-                    cout<<" ";
-                }
-                else{
-                    cout<<endl;
-                }
+                cout<<endl;
             }
         }
     }

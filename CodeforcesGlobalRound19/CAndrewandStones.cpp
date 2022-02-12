@@ -19,22 +19,22 @@
 #include <vector>
 using namespace std;
 int main(){
-    int cases;
+    long long cases;
     cin>>cases;
     while(cases){
         cases--;
-        int n;
-        int aux;
+        long long n;
+        long long aux;
         cin>>n;
-        vector <int> vec;
-        for(int i=0; i<n; i++){
+        vector <long long> vec;
+        for(long long i=0; i<n; i++){
             cin>>aux;
             vec.push_back(aux);
         }
         bool isPar = false;
         bool isNon = false;
         bool isBigerTree = false;
-        for(int i=1; i<n-1; i++){
+        for(long long i=1; i<n-1; i++){
             if(vec[i]%2 == 0){
                 isPar = true;
                 
@@ -52,7 +52,7 @@ int main(){
             }
             else{
                 bool resta = false, suma=false;
-                for(int i=1; i<n-1; i++){
+                for(long long i=1; i<n-1; i++){
                     if(!resta  && vec[i]>=3){
                         vec[i]-=2;
                         resta =true;
@@ -64,9 +64,9 @@ int main(){
                     
                 }
                 if(resta && suma ){
-                    int mov = 1;
+                    long long mov = 1;
                     bool leesPar = false;
-                    for(int i=1; i<n-1; i++){
+                    for(long long i=1; i<n-1; i++){
                         if(vec[i]%2 == 0){
                             if(!leesPar){
                             vec[i] -= 2;
@@ -78,7 +78,7 @@ int main(){
                         }
                     }
                     mov ++;
-                    for (int i=1; i<n-1; i++){
+                    for (long long i=1; i<n-1; i++){
                         mov += vec[i]/2;
                     }
                     cout<<mov<<endl;
@@ -89,10 +89,10 @@ int main(){
             }
         }
         else{
-            int mov =0;
+            long long mov =0;
             if(isNon){
                 bool leesPar = false;
-                for(int i=1; i<n-1; i++){
+                for(long long i=1; i<n-1; i++){
                     if(vec[i]%2 == 0){
                         if(!leesPar){
                             vec[i] -= 2;
@@ -105,7 +105,7 @@ int main(){
                 }
                 mov ++;
             }
-            for (int i=1; i<n-1; i++){
+            for (long long i=1; i<n-1; i++){
                 mov += vec[i]/2;
             }
             cout<<mov<<endl;

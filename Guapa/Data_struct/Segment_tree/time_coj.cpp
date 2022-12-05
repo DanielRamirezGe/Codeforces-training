@@ -22,12 +22,11 @@ int consulta(int i, int j, int a, int b, int p)
 		return inf;
 	if( i>=a and j<=b)
 		return arbol[p];
-	if(i!=j)
-	{
-		int uno=consulta(i, (i+j)/2, a, b, p<<1);
-		int dos=consulta(((i+j)/2)+1, j, a, b, (p<<1)+1);
-		return min(uno,dos);
-	}
+	
+	int uno=consulta(i, (i+j)/2, a, b, p<<1);
+	int dos=consulta(((i+j)/2)+1, j, a, b, (p<<1)+1);
+	return min(uno,dos);
+	
 }
 int main()
 {
